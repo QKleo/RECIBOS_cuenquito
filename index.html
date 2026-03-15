@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Generador de Recibos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h2>Generar Recibo</h2>
+
+  <div class="card">
+    <label>Monto</label>
+    <input type="number" id="monto" placeholder="Ingrese monto">
+
+    <div class="cliente-option">
+      <input type="radio" id="clienteExistente" name="tipoCliente" value="existente" checked> Seleccionar cliente existente
+      <div id="selectCliente">
+        <!--label>Cliente</label-->
+        <select id="cliente"></select>
+      </div>
+    </div>
+
+    <div class="cliente-option">
+      <input type="radio" id="clienteNuevo" name="tipoCliente" value="nuevo"> Ingresar cliente nuevo
+      <div id="nuevoCliente" style="display:none;">
+        <label>Nombre del Cliente</label>
+        <input type="text" id="nuevoNombre" placeholder="Ingrese nombre">
+
+        <label>Email del Cliente</label>
+        <input type="email" id="nuevoEmail" placeholder="Ingrese email">
+      </div>
+    </div>
+
+    <button onclick="generarRecibo()">Generar y Enviar</button>
+
+    <div id="loading" style="display:none; text-align:center; margin-top:20px;">
+      <div class="spinner"></div>
+      <p>Enviando recibo...</p>
+    </div>
+  </div>
+
+  <a href="config.html">Configuración</a>
+
+  <script src="app.js"></script>
+</body>
+</html>

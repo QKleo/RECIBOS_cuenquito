@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <body style="font-family: Arial; padding: 20px;">
+    <h2>Recibo de Pago #<?= data.numeroRecibo ?></h2>
+
+    <p><b>Fecha:</b> <?= data.fecha ?></p>
+    <p><b>Cliente:</b> <?= data.clienteNombre ?></p>
+    <p><b>Monto:</b> $<?= data.monto ?></p>
+
+    <br><br>
+
+    <p><b>Emitido por:</b> <?= data.nombreEmisor ?></p>
+
+    <? if (data.firmaDigital) { ?>
+      <img src="<?!= data.firmaDigital ?>" width="200">
+    <? } ?>
+  </body>
+</html>

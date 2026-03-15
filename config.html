@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Configuración</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h2>Configuración</h2>
+
+  <div class="card">
+    <label>Nombre del Emisor</label>
+    <input type="text" id="nombreEmisor">
+
+    <label>Email del Emisor</label>
+    <input type="email" id="emailEmisor">
+
+    <label>Firma Digital (dibuja tu firma)</label>
+    <canvas id="firmaCanvas" width="400" height="200" style="border:1px solid #000;"></canvas>
+    <button onclick="limpiarFirma()">Limpiar Firma</button>
+
+    <button onclick="guardarConfig()">Guardar</button>
+  </div>
+
+  <a href="index.html">Volver</a>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 // Cargar clientes desde Google Sheets
 async function cargarClientes() {
-  const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQOsNxY280axln8vgnj9_LshmD6BlSpswpWPV4pgRIY-gOZAvoUBVcQfHwcHnrRL0_qRPlYHWP3nXw4/pub?output=csv";
+  const url = "https://docs.google.com/spreadsheets/d/1cM4OPEMwTKJVMzl0S4ftcp0ZGfdCtD61KBJQsvv9edw/export?format=csv&gid=0"; // gid=0 asumiendo que "Clientes" es la primera hoja
 
   try {
     const res = await fetch(url);

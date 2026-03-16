@@ -1,5 +1,6 @@
 const ID_DE_TU_SHEET= "1cM4OPEMwTKJVMzl0S4ftcp0ZGfdCtD61KBJQsvv9edw"
 const ID_DE_TU_CARPETA_PDF="17kgETQIEUlkmihkPBlQKHY07Yv0NPBsJ"
+const NOMBRE_HOJA_CLIENTES = "Clientes"
 
 
 function doPost(e) {
@@ -22,6 +23,11 @@ function doPost(e) {
   const nombreEmisor = data.nombreEmisor;
   const emailEmisor = data.emailEmisor;
   const firmaDigital = data.firmaDigital; // Base64
+
+  // Verificar si el cliente existe, si no, agregarlo
+  if (!clienteExiste(clienteEmail)) {
+    agregarCliente(clienteNombre, clienteEmail);
+  }
 
   const numeroRecibo = generarNumeroRecibo();
   const fecha = new Date();
@@ -117,5 +123,23 @@ function enviarEmails({ pdfFile, clienteEmail, emailEmisor, clienteNombre, numer
   GmailApp.sendEmail(emailEmisor, asunto, "Copia del recibo generado.", {
     attachments: [pdfFile.getAs(MimeType.PDF)]
   });
+}
+
+function clienteExiste(email) {
+  const ss = SpreadsheetApp.openById(ID_DE_TU_SHEET);
+  const sheet = ss.getSheetByName(NOMBRE_HOJA_CLIENTES);
+  const data = sheet.getDataRange().getValues();
+  for (let i = 1; i < data.length; i++) { // Empezar desde la fila 2 (índice 1)
+    if (data[i][1] === email) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function agregarCliente(nombre, email) {
+  const ss = SpreadsheetApp.openById(ID_DE_TU_SHEET);
+  const sheet = ss.getSheetByName(NOMBRE_HOJA_CLIENTES);
+  sheet.appendRow([nombre, email]);
 }
 

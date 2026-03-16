@@ -1,7 +1,7 @@
 // Cargar clientes desde Google Sheets
 async function cargarClientes() {
-  const url = "https://docs.google.com/spreadsheets/d/1cM4OPEMwTKJVMzl0S4ftcp0ZGfdCtD61KBJQsvv9edw/export?format=csv&gid=0"; // gid=0 asumiendo que "Clientes" es la primera hoja
-
+  //const url = "https://docs.google.com/spreadsheets/d/1cM4OPEMwTKJVMzl0S4ftcp0ZGfdCtD61KBJQsvv9edw/export?format=csv&gid=0"; // gid=0 asumiendo que "Clientes" es la primera hoja
+  const url ="https://docs.google.com/spreadsheets/d/e/2PACX-1vSXP-6bH2s_mnCK6UdWy2wtIxh-LU1e4i5Ry2JAItoCSz8PXtsPIQyldkl4OLLTvIdX6rPJXk2KTay4/pub?output=csv"
   try {
     const res = await fetch(url);
     if (!res.ok) {
@@ -98,7 +98,7 @@ async function generarRecibo() {
   });
 
   try {
-    const res = await fetch("https://script.google.com/macros/s/AKfycbxq10Sg2vODNuIh7sb7yLiURSyFTb5XnlY_lnBbDO7KDRubT7MX6hID3cwBNRmHVW8/exec", {
+    const res = await fetch("https://script.google.com/macros/s/AKfycbwd8fDxNP-2Lor5qiSlrnu8LxV-YRDIxYPnnB4yviLZOaaScyB_Vm4SF69dWjzBuwI0kg/exec", {
       method: "POST",
       mode: "no-cors",
       body: formData
